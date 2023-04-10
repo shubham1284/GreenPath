@@ -1,0 +1,159 @@
+body {
+    background-size: cover;    
+    background-image: url("/resource/loginBackground"); /*choose image from static resource*/
+}
+
+.center {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-button {
+    
+    background-color:#422145;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 5px;
+    font-family:ROBOTO CONDENSED;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 16px;
+}
+
+.main-heading {
+
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+
+
+.input-icon {
+
+    position: absolute;
+    margin: 0.9rem 0.7rem;
+}
+
+.input-element {
+
+    padding: 0.5rem 0rem 0.5rem 2rem;
+    font-size: 16px;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+
+
+.error {
+
+    text-align: center;
+    word-break: break-word;
+    max-width: 20rem;
+    color: #ff9e9e;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.width{
+    width:600px;
+}
+.purple-icon{
+    --lwc-colorTextIconDefault: #422145;
+    padding: 2px;
+}
+.forWardIcon{
+    --lwc-colorTextIconDefault: #FFFFFF;
+    padding: 0.1rem;
+    background-color:#050A30
+}
+/*.submit_btn{
+    --lwc-colorTextIconDefault: #FFFFFF;
+    padding: 0.1rem;
+    background-color:#050A30 
+}*/
+.myColor{
+    /* background-color: #FFFFFF;
+    padding-top: 30px; */
+    padding-bottom: 30px;
+  
+    
+}
+.Allignment{
+    background-color: #FFFFFF;
+    border:1px solid #422145;
+    border-radius: 10px;
+    /* margin-top: 50px; */
+    margin-left: 150px;
+    margin-right: 150px;
+    /* padding: 10px 50px 10px 50px; */
+    padding:10px 0px 10px 60px;
+    width: 60%;
+    margin: 20px auto;
+    margin-bottom: 30px;
+}
+
+
+
+.iconErro{
+    --lwc-colorTextIconDefault: #FFFFFF;
+  
+}
+.required-star{
+
+    color: red;
+    
+}
+.inputfont{
+    font-size:17px;
+    
+}
+.emailfont{
+    font-size:17px;
+    font-weight: 400px;
+}
+
+.iconColor{
+ 
+    --lwc-colorTextIconDefault: #FFFFFF;
+}
+
+lightning-input{
+    --slds-c-input-radius-border: 8px;
+    --lwc-borderWidthThin:1px ;
+    --sds-c-input-color-border:black;
+    --lwc-colorBorderInputDisabled:black;
+    --lwc-colorTextInputDisabled::black;
+
+    }
+
+    .slds-input[disabled],.slds-input.slds-is-disabled{
+        --slds-c-input-radius-border: 8px;
+        --lwc-borderWidthThin:1px ;
+        --sds-c-input-color-border:black;
+    }
+
+    .mt-5{
+        margin-top:15px
+    }
+
+    .cus_input.slds-select{
+        height:33px;
+        border-radius:8px!important;
+    }
+
+    selectionHandler_req{
+        border: 1px solid black;
+        border-radius:9px
+    }
+    selectionHandler_Non_req{
+        border: 1px solid red;
+        border-radius:9px
+    }

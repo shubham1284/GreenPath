@@ -1,0 +1,324 @@
+<template>
+
+<!--  This Section Is For Spinner -->
+    <div if:true={isLoading}>
+        <lightning-spinner variant="brand" alternative-text="Loading" size="large"></lightning-spinner>
+    </div>
+
+        <template if:true={isFirstLoginPage}>
+<!--  This Section Is For Email Validation -->
+<div style="background: #fff;width: 35%;padding-bottom: 10px;border-radius: 15px;margin:0 auto;border:1px solid #422145;" >
+        <div style="padding-top: 25px;padding-bottom: 25px;"  class=" slds-align_absolute-center ">
+            <template if:true={isLoadingErrorMassage}>
+                <div style="width:90%;" class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                    <span class=" slds-assistive-text">warning</span>
+                        <span class=" iconColor slds-icon_container slds-icon-utility-error slds-var-m-right_x-small" title="Description of icon when needed">
+                            <lightning-icon class="iconErro"  size=" small" icon-name="utility:warning" alternative-text="Warning!" ></lightning-icon>
+                        </span>
+                        <h2 style="font-size: 16px;color:#FFFFFF;font-family:LATO;font-weight:700;margin-right: 4px;">{inputFieldErrorMessage}
+                            <a  style="color: #4292D5;" if:false={isPresentPartner} href="https://www.greenpath.com/partnerships/home/"> here.</a>
+                           <!--  <a   style="color: #4292D5;" if:true={isNonPortalPartner} href="mailto:+ {internalOwnerEmail}" target="_blank" >{internalOwnerEmail}</a> -->
+                            <a   style="color: #4292D5;" if:true={isNonPortalPartner} href={mailToLink} target="_blank" > {internalOwnerEmail} </a>
+                           
+                        </h2>
+                        <div class="slds-notify__close">
+                            <button class="slds-button slds-button_icon slds-button_icon-small" onclick={closAlertPopup} title="Close">
+                                <lightning-icon class="iconColor" size=" small" icon-name="utility:close" alternative-text="close" ></lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                        </div>
+                </div>
+            </template> 
+        </div>
+            <!--  This Section Is For Sign Up  Email first page -->
+                <div style="margin: 10px 0 70px 0;text-align:center;" class="  " >
+                    <div style="font-size: 22px;font-weight:bold;margin-bottom:10px;color:#87BD48;font-family: ROBOTO CONDENSED;" class="slds-form-element">
+                        PARTNER APPLICATION
+                    </div>
+                    <div style="font-size: 16px;margin-bottom: 30px;margin-top:10px;font-family: LATO;" class="slds-form-element">
+                        Begin by entering your company email address.
+                        </div>
+                    
+                    <div class="slds-form-element">
+                        <div class=" slds-input-has-icon slds-input-has-icon_left " onmouseover={handleEmailHover}>
+                            <lightning-icon class="input-icon purple-icon"  icon-name="utility:email" alternative-text="username" size="xx-small"></lightning-icon>
+                            <input type="text" data-id="inputEmail" placeholder="Enter Email Address" class="slds-input input-element" style="width: 75%;border:1px solid #422145;font-family: ROBOTO CONDENSED;"  onblur={onEmailBlur} required/>  
+                        </div>
+                    </div>
+                </div>
+                <div >
+                    <div style="border-radius: 8px; border:1px;border-color:#422145 ; background-color:#422145; width:160px;text-align: center;margin: 5% auto;font-family: ROBOTO CONDENSED;" class="slds-col  ">
+                        <button type="submit" class="login-button slds-button"   onclick={handleRegister}>Sign Up</button>
+                        <!-- <span >
+                            <lightning-icon  style="width: 20px !important;" class="forWardIcon"   icon-name="utility:forward"  title="Next"  alternative-text="Next" size="small" ></lightning-icon>
+                        </span> -->
+                    </div>
+                </div>
+            </div>
+        </template>
+    
+
+    <!--  This Section Is For Self Registration Page  -->
+    <template if:true={isSeondFFormRegistrationPage}>
+        <div class="myColor">
+            <div class="Allignment" >
+
+                <!--  This Section Is For Required for Validation -->
+            <div style=" background-color: white;">
+                <div style="  margin:20px 0;margin-right: 60px;" if:true={isRequiredError}>
+                    <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                            <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed">
+                                <lightning-icon class="iconErro" size=" small" icon-name="utility:error" alternative-text="error" ></lightning-icon>
+                            </span>
+                            <h2 style="font-size: 16px;font-family: LATO;font-weight:500">{ErrorMassagetodisplayed} 
+                                
+                            </h2>
+                            <div class="slds-notify__close">
+                                <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close">
+                                    <svg class="slds-button__icon" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div  style="margin-top:20px;font-family: ROBOTO CONDENSED;color: #87BD48;;text-align:center;background-color: #FFFFFF;font-size:22px; font-weight: bold; line-height: 1.1;">
+                USER REGISTRATION
+            </div>
+            <div  style="margin-top:20px;font-family: LATO;color: #000000; text-align:center;font-size:1.6rem;background-color: #FFFFFF;font-size: 16px;line-height:1.4285714;">
+                Please fill out the registration form below. All fields marked as (*) are required.
+            </div>
+           <!-- <h1 class="slds-section__title  " style="background-color: #f3f2f2;margin-top:30px;margin-bottom: 20px;" >
+                <lightning-icon size="x-small" class="slds-button__icon_left slds-p-left_x-small" icon-name="utility:chevrondown" alternative-text="chevrondown"></lightning-icon>
+                <span class="slds-truncate" title="Section Title " style="margin-top:4px;margin-bottom:4px;color: #000000;text-align:left;font-size:26px;font-weight: 400">  Contact Information </span>
+            </h1>-->
+            <div  style="font-family:LATO;color: #000000;margin-top:20px;text-align:left;font-size:20px;line-height: 1.42857143;font-size: 19px; font-weight: 400;;">
+                Please Provide Contact Details below.
+            </div>
+
+            <div style="margin-bottom:20px" class="demo-only demo-only--sizing slds-grid slds-wrap">
+                <div class="slds-size_1-of-2 mt-5">
+                    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                        <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black"> <span class="required-star">* </span>First Name</div></legend>
+                    <div  class="  slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">
+                        <lightning-input  variant="label-hidden" class="inputfont cus_input" name="First Name "  value={getContactRecord.FirstName} onchange={FirstNameameInpChange} required></lightning-input>
+                    </div>
+                </div>
+
+                <div class="slds-size_1-of-2  mt-5">
+                    <div class="   slds-m-around_x-small">
+                        <legend class="slds-form-element__legend slds-form-element__label ">
+                            <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black"> <span class="required-star">* </span>Last Name</div></legend>
+                        <lightning-input class="inputfont cus_input" name="Last Name" variant="label-hidden" value={getContactRecord.LastName} onchange={LastNameInpChange} required></lightning-input>
+                    </div>
+                </div>
+
+                <div class="slds-size_1-of-2 mt-5">
+                    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                        <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black"> <span class="required-star">* </span>Title</div></legend>
+                    <div class="slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small" >         
+                        <lightning-input   class="inputfont cus_input" name="Title" variant="label-hidden" value={getContactRecord.Title} onchange={titlInpChange} required> </lightning-input>
+                    </div>
+                </div>
+
+                <div class="slds-size_1-of-2 mt-5">
+                    <div class="   slds-m-around_x-small">
+                        <legend class="slds-form-element__legend slds-form-element__label ">
+                            <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black">  <span class="required-star">* </span>Email</div></legend>
+                        <div class=" ">   
+                            <lightning-input class="inputfont cus_input" name="Email" variant="label-hidden"  value={inputEmail} onchange={phoneInpChange} disabled required></lightning-input>   
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="slds-size_1-of-2 mt-5">
+                    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                        <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black">  <span class="required-star">* </span>Phone</div></legend>
+                    <div class=" slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">
+                        <lightning-input  class="inputfont cus_input"  name="Phone" variant="label-hidden"  value={getContactRecord.Phone} onchange={phoneInpChange} required> </lightning-input>
+                    </div>
+                </div>
+
+                <div class="slds-size_1-of-2 slds-form-element " style="margin-top:20px">
+                    <div class="slds-form-element__control slds-m-top_x-small slds-m-around_x-small">
+                        <div style="font-family:LATO;font-size: 17px; font-weight:600; color:black">  <span class="required-star">* </span>Partner Name</div></legend>
+                        <div class="slds-select_container">
+                            <select style="border: 1px solid black;border-radius:9px;" class="slds-select inputfont selectvalue cus_input" onchange={selectionChangeHandler} required  >
+                                <option value="Select">None...</option> 
+                                    <template for:each={AccountNameDropDown} for:item="option">
+                                        <option key={option} class="uiInputSelectOption" value={option}>{option}</option>
+                                    </template>
+                            </select>
+                        </div>
+                    </div>
+                    <div if:true={partnerNotSelected} style="margin-left: 12px;color:#EB7125" class="slds-form-element__help" id="error-01">Select an option.</div>
+                </div>
+
+                <div class="slds-align_absolute-center" style="padding-right: 60px;">
+                    <div class="mt-5" style="margin-top: 50px;margin-right: 30px;">
+                        <lightning-button label=Submit class="submit_btn" onclick={createPartnerContact} variant=”brand”></lightning-button>
+                    </div>
+                    <div class="mt-5"  style="margin-top: 50px;;">
+                        <lightning-button label=Cancel class="cancel_btn" onclick={NavigateToRegistration} variant=”brand”></lightning-button>
+                    </div>
+                </div>
+
+            </div>
+
+             <!--   <div slot=footer style="margin-top:20px;text-align:center">
+                    <lightning-button label=Submit class="submit_btn" onclick={createPartnerContact} variant=”brand”></lightning-button>
+                </div>-->
+            </div>
+        </div>
+    </template>
+
+    <template if:true={isnonPortalUser}>
+    <div class="myColor">
+        <div class="Allignment" >
+                    <!--  This Section Is For Required for Validation -->
+                    <div style=" background-color: white;">
+                    <div style="  margin:20px 0;margin-right: 60px;" if:true={isRequiredError}>
+                        <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                            <span class="slds-assistive-text">error</span>
+                                <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="Description of icon when needed">
+                                    <lightning-icon class="iconErro" size=" small" icon-name="utility:error" alternative-text="error" ></lightning-icon>
+                                </span>
+                                <h2 style="font-size: 16px;font-family:LATO;font-weight:500">{ErrorMassagetodisplayed} </h2>
+                                <div class="slds-notify__close">
+                                    <button class="slds-button slds-button_icon slds-button_icon-small slds-button_icon-inverse" title="Close">
+                                        <svg class="slds-button__icon" aria-hidden="true">
+                                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Close</span>
+                                    </button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div  style="margin-top:20px;font-family: ROBOTO CONDENSED;color: #87BD48;;text-align:center;background-color: #FFFFFF;font-size:22px; font-weight: bold; line-height: 1.1;">
+                    USER REGISTRATION 
+                </div>
+                <div  style="margin-top:20px;font-family: LATO;color: #000000; text-align:center;font-size:1.6rem;background-color: #FFFFFF;font-size: 16px;line-height:1.4285714;">
+                    Please fill out the registration form below. All fields marked as (*) are required.
+                </div>
+              <!--  <h1 class="slds-section__title  " style="background-color: #f3f2f2;margin-top:30px;margin-bottom: 20px;" >
+                    <lightning-icon size="x-small" class="slds-button__icon_left slds-p-left_x-small" icon-name="utility:chevrondown" alternative-text="chevrondown"></lightning-icon>
+                    <span class="slds-truncate" title="Section Title " style="margin-top:4px;margin-bottom:4px;color: #000000;text-align:left;font-size:26px;font-weight: 400">  Contact Information </span>
+                </h1> -->
+                <div  style="font-family: LATO;color: #000000;margin-top:16px;text-align:left;font-size:20px;line-height: 1.42857143;font-size: 19px; font-weight: 400;">
+                    Please Provide Contact Details below.
+                </div>
+
+
+
+
+                <div style="margin-bottom:20px" class="demo-only demo-only--sizing slds-grid slds-wrap">
+                    <div class="slds-size_1-of-2">
+                        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                            <div style="font-family:LATO;font-size: 17px; font-weight:600; color:black"> <span class="required-star">* </span>First Name</div></legend>
+                        <div class="  slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">
+                            <lightning-input class="inputfont" name="First Name" variant="label-hidden" value={npuFirstName} onchange={handleChange} required></lightning-input>
+                        </div>
+                    </div>
+    
+                    <div class="slds-size_1-of-2">
+                        <div class="   slds-m-around_x-small">
+                            <legend class="slds-form-element__legend slds-form-element__label ">
+                                <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black"> <span class="required-star">* </span>Last Name</div></legend>
+                            <lightning-input class="inputfont" name="Last Name" variant="label-hidden" value={npuLastName} onchange={handleChange} required></lightning-input>
+                        </div>
+                    </div>
+    
+                    <div class="slds-size_1-of-2">
+                        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                            <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black"> <span class="required-star">* </span>Title</div></legend>
+                        <div class="slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small" >         
+                            <lightning-input class="inputfont" name="Title" variant="label-hidden" value={npuTitle} onchange={handleChange} required> </lightning-input>
+                        </div>
+                    </div>
+    
+    
+                    <div class="slds-size_1-of-2">
+                        <div class="   slds-m-around_x-small">
+                            <legend class="slds-form-element__legend slds-form-element__label ">
+                                <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black">  <span class="required-star">* </span>Email</div></legend>
+                            <div class=" slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">   
+                                <lightning-input class="inputfont" name="Email" variant="label-hidden"  value={npuEmail} onchange={handleChange} disabled required></lightning-input>   
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                    <div class="slds-size_1-of-2">
+                        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                            <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black">  <span class="required-star">* </span>Phone</div></legend>
+                        <div class=" slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">
+                            <lightning-input class="validateInput"    name="Phone" variant="label-hidden"  value={npuPhone} onchange={handleChange}  required> </lightning-input>
+                        </div>
+                    </div>
+    
+                    <div style="margin-top: 4px;" class="slds-size_1-of-2 ">
+                        <div class=" slds-m-top_x-small slds-m-left_x-small slds-m-around_x-small">
+                            <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black">  <span class="required-star">* </span>Partner Name</div></legend>
+                            <div style="width: 85%;" class="slds-select_container ">
+                                <select  style="border: 1px solid black;border-radius:9px;" class="slds-select inputfont selectvalue" onchange={selectionChangeHandler} required >
+                                    <option value="Select">None...</option> 
+                                        <template for:each={AccountNameDropDown} for:item="option">
+                                            <option key={option} class="uiInputSelectOption" value={option}>{option}</option>
+                                        </template>
+                                </select>
+                                
+                            </div>
+                        </div>
+                        <div if:true={partnerNotSelected} style="margin-left: 12px;;color:#EB7125" class="slds-form-element__help" id="error-02">Select an option.</div>
+                    </div>
+
+                    <div class="slds-align_absolute-center" style="padding-right: 60px;">
+                        <div class="mt-5" style="margin-top: 50px;margin-right: 30px;">
+                            <lightning-button label=Submit class="submit_btn" onclick={createNonPortalUser} variant=”brand”></lightning-button>
+                        </div>
+                        <div class="mt-5"  style="margin-top: 50px;">
+                            <lightning-button label=Cancel class="cancel_btn" onclick={NavigateToRegistration} variant=”brand”></lightning-button>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+              <!-- <div slot=footer style="text-align:center"  class="slds-col  ">
+                    <lightning-button label=Submit class="submit_btn" onclick={createNonPortalUser}  variant=”brand”></lightning-button>
+                 
+                </div>-->
+        </div>
+    </div>
+    </template>
+
+    <template if:true={isThirdRegistrationConfirmationPage}>
+        <div class="myColor">
+            <div class="Allignment" style="padding: 10px 10px 10px 10px;">
+                <div  style="font-family: ROBOTO CONDENSED;color: #87BD48;font-family: roboto condensed;text-align:center;background-color: #FFFFFF;font-size: 22px;text-transform: uppercase;
+                font-weight: bold;">
+                    Aplication Submitted. 
+                </div>
+                <div  style="font-family: LATO;color: #000;margin-top:6px; text-align:center;font-size:17px;font-size: 19px; ">
+                Thank you for submitting the application!
+                </div>
+                <div  style="font-family: LATO;color: #000;margin-top:6px; text-align:center;font-size:17px;font-size: 19px; ">
+                We will be sending you an email with username and link to setup password for login into The Hub.
+                </div>
+                
+            </div>  
+        </div>
+    </template>
+
+</template>

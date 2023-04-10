@@ -1,0 +1,127 @@
+<template>
+    <div style="font-size: 15px; font-weight:400;" if:true={showErrormassage} class="slds-show slds-text-color_error">
+        Please Fill Mandatory Fields.
+    </div>
+    <div style="margin-bottom:30px" class="  demo-only demo-only--sizing slds-grid slds-wrap">
+        
+       
+        <div class="slds-form-element slds-hint-parent slds-size_1-of-3">
+            <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                <div style="font-size: 15px; font-weight:400; color:black">Merge  Entity 1</div></legend>
+            <div class="slds-form-element__control">
+                <div class="slds-combobox_container">
+                    <div id="box"  class={boxClass} aria-expanded="true" aria-haspopup="listbox" role="combobox">
+                        <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                            <template if:true={isValueSelected}>
+                                <div id="lookup-pill" class="slds-pill-container">
+ 
+                                    <span class="slds-pill slds-pill_link">
+                                        <a style="height: 32px;" href="#" class="slds-pill__action" title="Full pill label verbiage mirrored here">
+                                        <span class="slds-pill__label">{selectedName}</span>
+                                        </a>
+                                        <button onclick={removeEntity1Name} class="slds-button slds-button_icon slds-button_icon slds-pill__remove" title="Remove">
+                                            <lightning-icon  icon-name="utility:close"  alternative-text="acc" ></lightning-icon>
+                                        <span class="slds-assistive-text">Remove</span>
+                                        </button>
+                                        </span>
+                                </div>
+                            </template>
+                            <template if:false={isValueSelected}>
+                                <div class="slds-p-top_none">
+                                    <lightning-input required  class={inputClass} type="search" id="input" value={searchTerm}
+                                                     onclick={handleClick} onblur={onBlur} onchange={onChange}
+                                                     variant="label-hidden" autocomplete="off" placeholder={searchPlaceholder}>
+                                    </lightning-input>
+                                </div>
+                            </template>
+                        </div>
+                        <div style="width:85% !important;" id="listbox-id-1" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox">
+                            <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                                <template for:each={records} for:item="record">
+                                    <li key={record.Id} onclick={onSelect} data-id={record.Id} role="presentation" data-name={record.Name}>
+                                        <span class="slds-lookup__item-action slds-lookup__item-action--label" role="option">
+                                            <lightning-icon class="slds-icon slds-icon--small slds-icon-text-default" icon-name={iconName} alternative-text={objName} size="small"></lightning-icon>
+                                            <span class="slds-truncate">{record.Name}</span>
+                                        </span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div style="margin-left:50px" class="slds-form-element slds-hint-parent slds-size_1-of-3">
+            <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                <div style="font-size: 15px;; font-weight:400; color:black">Merge  Entity 2</div></legend>
+            <div class="slds-form-element__control">
+                <div class="slds-combobox_container">
+                    <div id="box1" class={boxClass1} aria-expanded="true" aria-haspopup="listbox" role="combobox">
+                        <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                            <template if:true={isValueSelected1}>
+                                <div id="lookup-pill1" class="slds-pill-container">
+                                  
+
+
+                                    <span class="slds-pill slds-pill_link">
+                                        <a style="height: 32px;" href="#" class="slds-pill__action" title="Full pill label verbiage mirrored here">
+                                        <span class="slds-pill__label">{selectedName1}</span>
+                                        </a>
+                                        <button onclick={removeEntity1Name1} class="slds-button slds-button_icon slds-button_icon slds-pill__remove" title="Remove">
+                                            <lightning-icon  icon-name="utility:close"  alternative-text="acc" ></lightning-icon>
+                                        <span class="slds-assistive-text">Remove</span>
+                                        </button>
+                                        </span>
+
+                                </div>
+                            </template>
+                            <template if:false={isValueSelected1}>
+                                <div class="slds-p-top_none">
+                                    <lightning-input required  class={inputClass1} type="search" id="input1" value={searchTerm1}
+                                                     onclick={handleClick1} onblur={onBlur1} onchange={onChange1}
+                                                     variant="label-hidden" autocomplete="off" placeholder={searchPlaceholder}>
+                                    </lightning-input>
+                                </div>
+                            </template>
+                        </div>
+                        <div style="width:700px" id="listbox-id-2" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_field" role="listbox">
+                            <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                                <template for:each={records1} for:item="record">
+                                    <li key={record.Id} onclick={onSelect1} data-id={record.Id} role="presentation" data-name={record.Name}>
+                                        <span class="slds-lookup__item-action slds-lookup__item-action--label" role="option">
+                                            <lightning-icon class="slds-icon slds-icon--small slds-icon-text-default" icon-name={iconName} alternative-text={objName} size="small"></lightning-icon>
+                                            <span class="slds-truncate">{record.Name}</span>
+                                        </span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+    <div class="slds-border_top" style="color:#c9c9c9;"></div><br/>
+    <div style="margin-bottom:30px" class="slds-grid slds-grid_align-end">
+       
+        <div class="slds-col">
+          <span><lightning-button label="Next" style="margin-right: 10px;" onclick={handleNext} variant="Brand">
+                  </lightning-button>
+            </span>
+        </div>
+        <div class="slds-col">
+          <span>  <a class="slds-button slds-button_brand" style="background-color:white;color: blue;" href="https://greenpath--cube84.sandbox.lightning.force.com/lightning/o/Account/list?filterName=Recent">Cancel</a></span>
+        </div>
+        
+      </div>
+</template>

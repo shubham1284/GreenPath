@@ -1,0 +1,516 @@
+<template>
+   
+    <div style="margin-top:00px">
+      <div if:true={isLoading}>
+        <!--  <lightning-spinner variant="brand" alternative-text="Loading" size="large"></lightning-spinner>-->
+
+        <div class="demo-only" style="height:6rem;position:relative">
+          <div class="slds-spinner_container  slds-is-fixed">
+            <div role="status" class="slds-spinner  slds-spinner_large slds-spinner_brand ">
+              <span class="slds-assistive-text">Loading</span>
+              <div class="slds-spinner__dot-a"></div>
+              <div class="slds-spinner__dot-b"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div style="padding-top: 20px;" dir="rtl" if:true={isPartnerAdminUser} class="slds-grid  ">
+
+        <div  if:true={showcEditButton} class="mr-20 slds-text-align_right  ">
+          <p style="    padding: 10px;
+          margin-bottom: 10px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 15px;
+          color: #000;">Need to update information here? Click the <b>“Edit”</b> button, any field with a white box is able to be changed to provide your organization's most up to date information.</p>
+            <lightning-button  label=Edit class="cancel_btn" onclick={editValues} variant=”brand”></lightning-button>
+        </div>
+          
+
+          <div if:true={showcancelButton} class="mr-20 slds-text-align_right  ">
+            <lightning-button label=Cancel class="cancel_btn" onclick={clereValues} variant=”brand”></lightning-button>
+        </div>
+
+
+        <div if:true={showSubmitButton} class="mr-20 slds-text-align_right  ">
+            <span>  <lightning-button  label=Save class="submit_btn" onclick={saveRecords}  variant=”brand”></lightning-button></span>
+          </div>
+        </div>
+
+        <!--<div style="border-bottom:1px solid #848884;margin-top:15px;margin-right:50px;margin-left:50px"></div>-->
+          
+        
+   
+       
+ 
+
+<lightning-record-edit-form object-api-name="Account" record-id={getId} id="data1"  record-type-id={recordtypeID}>
+    <!-- <lightning-messages></lightning-messages> -->
+<div style="margin-bottom:20px;margin-top:0!important" class="slds-m-left_x-small slds-p-left_x-small demo-only demo-only--sizing slds-grid slds-wrap">
+
+    
+
+    <div class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Your Organization’s Name</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="name"   class="inputfont p-left-large" field-name="Name"  value={partnerDetails.Name} variant="label-hidden"  onchange={handleChange} disabled> </lightning-input-field>
+        </div>
+        <!--<a  href="#" onclick={handleEditField}>
+            <lightning-icon icon-name="utility:edit" class="ld-edit" alternative-text="Edit"
+                title="Edit" size="xx-small"></lightning-icon>
+        </a>-->
+        </div>
+      </div>
+
+
+      <div class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black"> Your Organization’s Website URL</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="website"   class="inputfont p-left-large" field-name="Partner_s_general_website__c"  value={partnerDetails.Partner_s_general_website__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+        </div>
+        <!--<a href="#" onclick={handleEditField}>
+            <lightning-icon icon-name="utility:edit" class="ld-edit" alternative-text="Edit"
+                title="Edit" size="xx-small"></lightning-icon>
+        </a>-->
+        </div>
+      </div>
+
+      <div class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black"> What other names/AKAs would others associate with your organization?</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="aka"   class="inputfont p-left-large field3" field-name="Previously_Known_As__c"  value={partnerDetails.Previously_Known_As__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+        </div>
+        <!--<a href="#" onclick={handleEditField}>
+            <lightning-icon icon-name="utility:edit" class="ld-edit" alternative-text="Edit"
+                title="Edit" size="xx-small"></lightning-icon>
+        </a>-->
+        </div>
+      </div>
+
+      <div class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">  The GreenPath Phone Number to Use For Your Referrals</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static ">
+            <lightning-input-field  name="phone" class="inputfont p-left-large field3" field-name="GPFW_Unique_Phone_Number__c"  value={partnerDetails.GPFW_Unique_Phone_Number__c} variant="label-hidden"  onchange={handleChange} disabled> </lightning-input-field>
+        </div>
+        <!--<a href="#" onclick={handleEditField}>
+            <lightning-icon icon-name="utility:edit" class="ld-edit" alternative-text="Edit"
+                title="Edit" size="xx-small"></lightning-icon>
+        </a>-->
+        </div>
+      </div>
+
+      
+ 
+      <div class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black"> Your Partnership Launch date</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="startdate"  class="inputfont p-left-large" field-name="Program_Start_Date__c"  value={partnerDetails.Program_Start_Date__c} variant="label-hidden" disabled onchange={handleChange}  > </lightning-input-field>
+        </div>
+        <!--<a href="#" onclick={handleEditField}>
+            <lightning-icon icon-name="utility:edit" class="ld-edit" alternative-text="Edit"
+                title="Edit" size="xx-small"></lightning-icon>
+        </a>-->
+        </div>
+      </div>
+
+
+      <div class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black"> Your Dedicated GreenPath Webiste URL</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="url"  class="inputfont p-left-large" field-name="Co_Branded_URL__c"  value={partnerDetails.Co_Branded_URL__c} variant="label-hidden"  onchange={handleChange} disabled > </lightning-input-field>
+        </div>
+        <!--<a href="#" onclick={handleEditField}>
+            <lightning-icon icon-name="utility:edit" class="ld-edit" alternative-text="Edit"
+                title="Edit" size="xx-small"></lightning-icon>
+        </a>-->
+        </div>
+      </div>
+
+
+     <!--  <div class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black"> Number of branches</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="branch"   class="inputfont p-left-large" field-name="Number_of_branches__c"  value={partnerDetails.Number_of_branches__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly}> </lightning-input-field>
+        </div>
+      
+        </div>
+      </div> -->
+
+
+
+      <div if:true={showRoutingMember} class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Routing numbers</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="routing" class="inputfont p-left-large" field-name="Routing_Numbers__c"  value={partnerDetails.Routing_Numbers__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+        </div>
+        <!--<a href="#" onclick={handleEditField}>
+            <lightning-icon icon-name="utility:edit" class="ld-edit" alternative-text="Edit"
+                title="Edit" size="xx-small"></lightning-icon>
+        </a>-->
+        </div>
+      </div>
+
+
+
+  
+
+        <div if:true={showDMPConsessionReceived} class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">DMP Concessions Received</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="relese"  class="inputfont p-left-large" field-name="News_Release__c"  value={partnerDetails.News_Release__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+        </div>
+       
+        </div>
+      </div>
+
+
+      <div class="slds-size_2-of-2">
+        <h1 class="slds-section__title slds_theme_shade " style="background-color: #f3f2f2;margin-top:20px" >
+            <span class="slds-truncate" title="Section Title" style="font-family:Lato; font-weight: 600;margin-left:10px"> Billing Section </span>
+        </h1>
+    </div>
+
+
+
+  <!--   <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Accounts Receivable Payment Method</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="payMethod"   class="inputfont p-left-large" field-name="Accounts_Receivable_Payment_Method__c"  value={partnerDetails.Accounts_Receivable_Payment_Method__c} variant="label-hidden"  onchange={handleChange}  disabled={isReadOnly} > </lightning-input-field>
+        </div>
+      
+        </div>
+      </div> -->
+
+
+      <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Your Partnership Anniversary month</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="monthIncrease"  class="inputfont p-left-large" field-name="Price_Increase_Month__c"  value={partnerDetails.Price_Increase_Month__c} variant="label-hidden"  onchange={handleChange}  disabled> </lightning-input-field>
+        </div>
+      
+        </div>
+      </div>
+
+      <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <label class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO; font-size: 15px; font-weight: 400; color: black;">Your Current Recurring Invoice Amount</div>
+        </label>
+       
+        <span>
+          <div style="padding-top: 10px;display:block">
+  <lightning-helptext  content="Please see below for frequency."></lightning-helptext> 
+</div>   
+
+      </span>
+        <div class="slds-form-element__control">
+            <div class="slds-form-element__static">
+                <lightning-input-field name="ogRevenue" class="inputfont p-left-large" field-name="Monthly_Program_Cost__c" value={partnerDetails.Monthly_Program_Cost__c} variant="label-hidden" onchange={handleChange} disabled={isReadOnly}></lightning-input-field>
+            </div>
+        </div>
+    </div>
+
+      <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Your Invoice Frequency</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static ">
+            <lightning-input-field  name="frequency"  class="inputfont p-left-large field3" field-name="Frequency__c"  value={partnerDetails.Frequency__c} variant="label-hidden"  onchange={handleChange} disabled> </lightning-input-field>
+        </div>
+    
+        </div>
+      </div>
+
+      <div if:true={isFrequencySelectedOther} class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Frequency Notes</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="otherNote"  class="inputfont p-left-large" field-name="Billing_Frequency_Notes__c"  value={partnerDetails.Billing_Frequency_Notes__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+        </div>
+       
+        </div>
+      </div>
+     
+
+ 
+    
+
+
+     <!--  <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Billing Customer Number</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field  name="customerNumber"  class="inputfont p-left-large" field-name="Billing_Customer_Number__c"  value={partnerDetails.Billing_Customer_Number__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+        </div>
+      
+        </div>
+      </div>
+
+      <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Pricing Decision Notes</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field  name="decision" class="inputfont p-left-large" field-name="Pricing_Decision_Notes__c"  value={partnerDetails.Pricing_Decision_Notes__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+        </div>
+      
+        </div>
+      </div>
+
+  
+      <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Billing History</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field  name="programNote" class="inputfont p-left-large" field-name="Program_Notes__c"  value={partnerDetails.Program_Notes__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+        </div>
+    
+        </div>
+      </div>
+
+
+      <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+            <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Billing/Grant Invoice Method</div></legend>
+        <div class="slds-form-element__control">
+          <div class="slds-form-element__static">
+            <lightning-input-field name="billMethod"  class="inputfont p-left-large" field-name="Billing_Method__c"  value={partnerDetails.Billing_Method__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly}> </lightning-input-field>
+        </div>
+       
+        </div>
+      </div>
+
+
+      
+      <div if:true={showAddressCompleteAddress} class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+      <fieldset  class="slds-form-element_address">
+        <legend style="font-family: LATO;font-size: 15px; font-weight:400; color:black" class="slds-form-element__legend slds-form-element__label">Shipping Address</legend>
+        <div  class="slds-form-element__control ">
+     
+        
+        <div class="slds-form-element">
+        <label style="font-family: LATO;font-size: 12px; font-weight:400; color:black" class="slds-form-element__label" for="form-element-id-01">Street</label>
+        <div class="slds-form-element__static">
+          <lightning-input-field name="shipStreet"  value={partnerDetails.ShippingStreet} field-name="ShippingStreet" variant="label-hidden"  onchange={handleChange} disabled={isReadOnly}></lightning-input-field>
+        
+        </div>
+       
+        </div>
+       
+        <div class="slds-grid slds-gutters ">
+        <div class="slds-col slds-size_3-of-6">
+       
+        <label style="font-family: LATO;font-size: 12px; font-weight:400; color:black" class="slds-form-element__label" for="form-element-id-02"> Country</label>
+        <div class="slds-form-element__control">
+          <lightning-input-field name="shipCountry"   value={partnerDetails.ShippingCountry} field-name="ShippingCountryCode" variant="label-hidden"  onchange={handleChange} disabled={isReadOnly}></lightning-input-field>
+       
+        </div>
+        </div>
+        <div class="slds-size_2-of-6">
+       
+        <label style="font-family: LATO;font-size: 12px; font-weight:400; color:black" class="slds-form-element__label" for="form-element-id-03">City</label>
+        <div class="slds-form-element__control">
+          <lightning-input-field name="shipcity"  value={partnerDetails.ShippingCity} field-name="ShippingCity" variant="label-hidden"  onchange={handleChange} disabled={isReadOnly}></lightning-input-field>
+       
+        </div>
+        </div>
+        </div>
+        <div class="slds-grid slds-gutters ">
+          <div class="slds-col slds-size_3-of-6">
+      
+        <label style="font-family: LATO;font-size: 12px; font-weight:400; color:black" class="slds-form-element__label" for="form-element-id-04">Shipping State/Province</label>
+        <div class="slds-form-element__control">
+          <lightning-input-field name="shipstate"  value={partnerDetails.ShippingState} field-name="ShippingStateCode" variant="label-hidden"  onchange={handleChange} disabled={isReadOnly}></lightning-input-field>
+        </div>
+        
+        </div>
+        <div class="slds-size_2-of-6">
+      
+        <label style="font-family: LATO;font-size: 12px; font-weight:400; color:black" class="slds-form-element__label" for="form-element-id-05">Postal Code</label>
+        <div class="slds-form-element__control">
+          <lightning-input-field name="postalCode" value={partnerDetails.ShippingPostalCode} field-name="ShippingPostalCode" variant="label-hidden"  onchange={handleChange} disabled={isReadOnly}></lightning-input-field>
+        </div>
+        
+        </div>
+        </div>
+        </div>
+        </fieldset>
+      </div>
+     
+  <div if:true={showTextAddress}  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+        <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Shipping Address</div></legend>
+    <div class="slds-form-element__control">
+      <div class="slds-form-element__static">
+        <textarea style="width:85%;" id="textarea-id-01" disabled=""  class="slds-textarea">{partnerDetails.ShippingStreet} , {partnerDetails.ShippingCity} {partnerDetails.ShippingCountry}  {partnerDetails.ShippingState},  {partnerDetails.ShippingPostalCode}  
+        </textarea>
+    </div>
+ 
+    </div>
+  </div>
+
+
+ 
+
+
+
+
+  <div if:true={showPickAllCodes}  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+        <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Billing Codes</div></legend>
+    <div class="slds-form-element__control">
+      <div class="slds-form-element__static">
+        <lightning-input-field name="billingcode"  class="inputfont p-left-large" field-name="Billing_Codes__c"  value={partnerDetails.Billing_Codes__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+    </div>
+  
+    </div>
+  </div>
+
+  <div if:true={showTextPickFields}  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+        <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Billing Codes</div></legend>
+    <div class="slds-form-element__control">
+      <div class="slds-form-element__static">
+        <textarea style="width:85%;" id="textarea-id-02" disabled=""  class="slds-textarea">{partnerDetails.Billing_Codes__c}  
+        </textarea>
+    </div>
+
+    </div>
+  </div>
+
+
+  <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+        <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Billing Notes</div></legend>
+    <div class="slds-form-element__control">
+      <div class="slds-form-element__static">
+        <lightning-input-field name="billingnote"  class="inputfont p-left-large" field-name="Billing_Notes__c"  value={partnerDetails.Billing_Notes__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+    </div>
+ 
+    </div>
+  </div>
+
+
+  <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+        <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Billing Frequency</div></legend>
+    <div class="slds-form-element__control">
+      <div class="slds-form-element__static">
+        <lightning-input-field name="frequency"  class="inputfont p-left-large" field-name="Frequency__c"  value={partnerDetails.Frequency__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+    </div>
+
+    </div>
+  </div>
+
+
+  <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2 ">
+    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+        <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Renewal + 3%</div></legend>
+    <div class="slds-form-element__control ">
+      <div class="slds-form-element__static">
+        <lightning-input-field name="renewal"  class="inputfont p-left-large" field-name="Renewal_3__c"  value={partnerDetails.Renewal_3__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+    </div>
+ 
+    </div>
+  </div>
+
+
+  <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+        <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Month for Billing</div></legend>
+    <div class="slds-form-element__control">
+      <div class="slds-form-element__static">
+        <lightning-input-field name="bilmonth"  class="inputfont p-left-large" field-name="Month_for_Billing__c"  value={partnerDetails.Month_for_Billing__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+    </div>
+
+    </div>
+  </div>
+
+  <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2 ">
+    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+        <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Special/Unique Pricing</div></legend>
+    <div class="slds-form-element__control ">
+      <div class="slds-form-element__static">
+        <lightning-input-field  name="specialPrice" class="inputfont p-left-large" field-name="Special_Pricing__c"  value={partnerDetails.Special_Pricing__c} variant="label-hidden"   onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+    </div>
+
+    </div>
+  </div>
+
+
+  <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+        <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Special Pricing Notes</div></legend>
+    <div class="slds-form-element__control">
+      <div class="slds-form-element__static">
+        <lightning-input-field name="specialPricenote"  class="inputfont p-left-large" field-name="Special_Pricing_Notes__c"  value={partnerDetails.Special_Pricing_Notes__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+    </div>
+   
+    </div>
+  </div>
+
+
+
+  <div  class="slds-form-element slds-form-element_edit  slds-hint-parent slds-size_1-of-2">
+    <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+        <div style="font-family: LATO;font-size: 15px; font-weight:400; color:black">Original Contractual Revenue</div></legend>
+    <div class="slds-form-element__control">
+      <div class="slds-form-element__static">
+        <lightning-input-field name="ogRevenue"   class="inputfont p-left-large" field-name="Original_Contractual_Revenue__c"  value={partnerDetails.Original_Contractual_Revenue__c} variant="label-hidden"  onchange={handleChange} disabled={isReadOnly} > </lightning-input-field>
+    </div>
+
+    </div>
+  </div>
+
+ -->
+
+
+
+
+
+  
+
+
+</div>
+</lightning-record-edit-form>
+<div  dir="rtl" if:true={isPartnerAdminUser} class="slds-grid  ">
+
+  <div if:true={showcancelButton} class="mr-20 slds-text-align_right  ">
+    <lightning-button label=Cancel class="cancel_btn" onclick={clereValues} variant=”brand”></lightning-button>
+</div>
+
+
+  <div if:true={showSubmitButton} class="mr-20 slds-text-align_right  ">
+    <span>  <lightning-button  label=Save class="submit_btn" onclick={saveRecords}  variant=”brand”></lightning-button></span>
+  </div>
+
+  
+
+ 
+  </div>
+</div>
+</template>

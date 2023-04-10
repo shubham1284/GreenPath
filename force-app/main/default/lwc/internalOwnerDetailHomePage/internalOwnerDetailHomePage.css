@@ -1,0 +1,163 @@
+.userDP{
+    height: 70px;
+    margin-right: 20px;
+    border-radius: 50%;
+    border: 1px solid #bdbdbd;
+    /* margin-left: 20px; */
+}
+.body{
+    font-size: 16px;
+    font-family: LATO;
+    font-weight: 400;
+}
+
+.grid-container-element { 
+    width: 100%; 
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    
+    
+} 
+.grid-child-element { 
+    margin: 10px; 
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    width:auto;
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .center {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card {
+    background-color: #86bd484d;
+    /* width: 250px; */
+    min-height: 330px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 5px;
+    box-shadow: -20px -20px 0px 0px #87BD48;
+    border-radius: 10px;
+    -webkit-animation-name: shadow-show;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1.5s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: shadow-show;
+    animation-duration: 1.5s;
+    transition-timing-function: cubic-bezier(0.795, 0, 0.165, 1);
+    /* custom */
+  }
+   .card h2{
+    margin: 0px;
+    padding: 0px 0px 15px 0px;
+    font-family: "Roboto Condensed";
+    font-size: 25px;
+    color: #282828;
+    align-items: center;
+    display: flex;
+  }
+  .card hr {
+    display: block;
+    border: none;
+    height: 3px;
+    background-color: #87BD48;
+    margin: 0px;
+    -webkit-animation-name: line-show;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.3s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: line-show;
+    animation-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.795, 0, 0.165, 1);
+    /* custom */
+  }
+  .card p {
+    margin: 15px 0px 0px 0px;
+    font-family: 'Lato';
+    letter-spacing: -0.25px;
+    line-height: 1.25;
+    font-size: 16px;
+    word-break: break-all;
+    word-wrap: pre-wrap;
+    color: #282828;
+    -webkit-animation-name: p-show;
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1.5s;
+    /* Safari 4.0 - 8.0 */
+    animation-name: p-show;
+    animation-duration: 1.5s;
+  }
+  
+  
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes line-show {
+    from {
+      margin: 0px 100px;
+    }
+    to {
+      margin: 0px;
+    }
+  }
+  /* Standard syntax */
+  @keyframes line-show {
+    from {
+      margin: 0px 100px;
+    }
+    to {
+      margin: 0px;
+    }
+  }
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes p-show {
+    from {
+      color: white;
+    }
+    to {
+      color: #282828;
+    }
+  }
+  /* Standard syntax */
+  @keyframes p-show {
+    from {
+      color: white;
+    }
+    to {
+      color: #282828;
+    }
+  }
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes shadow-show {
+    from {
+      box-shadow: 0px 0px 0px 0px #e0e0e0;
+    }
+    to {
+      box-shadow: -20px -20px 0px 0px #87BD48;
+    }
+  }
+  /* Standard syntax */
+  @keyframes shadow-show {
+    from {
+      box-shadow: 0px 0px 0px 0px #e0e0e0;
+    }
+    to {
+      box-shadow: -20px -20px 0px 0px #87BD48;
+    }
+  }

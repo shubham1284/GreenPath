@@ -1,0 +1,90 @@
+.Backgroundimage{
+   
+    width: auto;
+    background-size: cover;
+    min-height: 2.75rem;
+    padding-top: 0rem 
+ 
+}
+
+.body, html { 
+    height: 100%; 
+    margin: 0; 
+}
+.top-left {
+    position: absolute;
+    top: 52px;
+    left: 90px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Lato';
+  }
+  .top-right {
+    position: absolute;
+    top: 52px;
+    right: 90px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Lato';
+  }
+
+  h1{
+    font-size: 23px;
+    
+    color: white;
+    font-weight: 500;
+    font-family: Roboto Condensed;
+    letter-spacing: 1px;
+  }
+
+
+
+
+  .container1 {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+.float-container {
+    border: 0.5px solid #b9eb7f;
+    padding: 20px;
+}
+
+.float-child {
+    width: 49%;
+    float: left;
+    padding: 20px;
+    
+}  
+
+
+.grid-container-element { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 20px; 
+    border: 1px solid #b9eb7f; 
+    width: 100%; 
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    padding-bottom: 15px;
+} 
+.grid-child-element { 
+    margin: 10px; 
+    border: 1px  solid #b9eb7f; 
+}
+.center {
+ 
+  margin-top: 75px;
+  color: white;
+ 
+  line-height:102.857px;
+  font-weight:500;
+  font-family:'Roboto Condensed';
+  font-size:72px;
+  text-align: center
+  
+}

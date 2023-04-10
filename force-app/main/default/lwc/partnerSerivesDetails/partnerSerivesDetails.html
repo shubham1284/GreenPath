@@ -1,0 +1,99 @@
+<template>
+
+    <c-common-toast auto-close-time="8000"></c-common-toast>
+    
+    <lightning-record-edit-form object-api-name="Partner_Product_and_Service__c" id="data1" >
+
+
+        <!---Accordion-->
+        <lightning-card >
+        <lightning-accordion allow-multiple-sections-open class="accordionClass"
+                            active-section-name="A"
+                            onsectiontoggle={handleSectionToggle}>
+            <template for:each={prductList} for:item="item" for:index="index">
+                <lightning-accordion-section  key={item.li.Id}  label={item.li.Name}>
+
+                    <div  style="margin-bottom:20px" class="demo-only demo-only--sizing slds-grid slds-wrap">
+                        <div class="slds-size_1-of-4  slds-m-left_x-large">
+                            <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                                <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black">  Name</div></legend>
+                                <div  class="  slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">
+                                    <lightning-input-field field-name="Name" name={index}  value={item.li.Name} variant="label-hidden"  onchange={handleNamechange} required > </lightning-input-field>
+                                </div>
+                        </div>
+                    
+
+                 <div class="slds-size_1-of-4 slds-m-left_x-large">
+                        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                            <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black">Partner Name</div></legend>
+                            <div  class="  slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">
+                                <lightning-input-field field-name="Partner_Account__c"  name={index} value={item.li.Partner_Account__c} variant="label-hidden"  required  onchange={handleAccountchange}> </lightning-input-field>
+                            </div>
+                    </div>
+
+                    <div class="slds-size_1-of-4 slds-m-left_x-large slds-m-left_x-large">
+                        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                            <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black"> URL/Website</div></legend>
+                            <div  class="  slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">
+                                <lightning-input-field field-name="URL_Website__c"  name={index} value={item.li.URL_Website__c} variant="label-hidden"  required  onchange={handleurlchange}> </lightning-input-field>
+                            </div>
+                    </div>
+
+                    <!-- second Row -->
+
+                    <div class="slds-size_1-of-4  slds-m-left_x-large">
+                        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                            <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black"> Type of Product</div></legend>
+                            <div  class="  slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">
+                                <lightning-input-field field-name="Type_of_Product__c"  name={index} value={item.li.Type_of_Product__c} variant="label-hidden"  required  onchange={handleurlchange}> </lightning-input-field>
+                            </div>
+                    </div>
+
+                    <div class="slds-size_1-of-4 slds-m-left_x-large">
+                        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                            <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black"> Phone Number</div></legend>
+                            <div  class="  slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">
+                                <lightning-input-field field-name="Phone_Number__c"  name={index} value={item.li.Phone_Number__c} variant="label-hidden"  required  onchange={handleurlchange}> </lightning-input-field>
+                            </div>
+                    </div>
+
+
+                    <div class="slds-size_1-of-4 slds-m-left_x-large">
+                        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                            <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black"> Status</div></legend>
+                            <div  class="  slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">
+                                <lightning-input-field field-name="Status__c"  name={index} value={item.li.Status__c} variant="label-hidden"  required  onchange={handleurlchange}> </lightning-input-field>
+                            </div>
+                    </div>
+
+                    <div class="slds-size_1-of-4  slds-m-left_x-large">
+                        <legend class="slds-form-element__legend slds-form-element__label slds-m-top_x-small">
+                            <div style="font-family: LATO;font-size: 17px; font-weight:600; color:black">Description</div></legend>
+                            <div  class="  slds-m-top_x-small slds-m-bottom_x-small slds-m-right_x-small">
+                                <lightning-input-field  field-name="Description__c"  name={index} value={item.li.Description__c} variant="label-hidden"  required  onchange={handleurlchange}> </lightning-input-field>
+                            </div>
+                    </div>
+
+                </div>
+
+              <!--  <lightning-button label="Next" title="Next" onclick={saveon} variant="brand"></lightning-button> -->
+                  
+                </lightning-accordion-section>  
+            </template>
+
+           
+        </lightning-accordion>
+      <!--  <div slot=footer style="margin-top:20px;text-align:center">
+            <lightning-button label="Save" title="Save" onclick={saveon} variant="brand"></lightning-button>
+        </div>-->
+      
+        </lightning-card>
+       
+        <!---/Accordion-->
+
+    </lightning-record-edit-form>
+
+    <div class="slds-size_2-of-2 slds-align_absolute-center slds-m-top_xx-large">
+        <lightning-button class="submit_btn" label="Save" title="Save" onclick={saveon} variant="brand"></lightning-button>
+    </div>
+</template>

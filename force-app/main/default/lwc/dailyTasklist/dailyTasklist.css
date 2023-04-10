@@ -1,0 +1,28 @@
+.THIS .table-tbody-td {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.slds-form-element__control {
+    width:50%;
+    --lwc-borderWidthThin:5px;
+}
+
+.width{
+    width:30%;
+    text-align: center !important;
+}
+
+.slds-input_faux {
+    display: none;
+    text-align: center !important;
+}
+.norecord{
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-weight: 400; 
+}

@@ -1,0 +1,140 @@
+<template>
+   <div style="    padding-bottom: 10px;;" class="slds-text-heading_medium">Need anything regarding your GreenPath partnership? Please reach out to</div>
+   <!--   Internal  owner User Details  -->
+   <div style="box-shadow: rgb(0 0 0 / 16%) 0px 5px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;
+   padding: 0px 0px 10px 20px;
+   margin-bottom: 25px;">
+      <h1 class="slds-section__title slds_theme_shade " style="background-color: #f3f2f2;padding-top:10px" >
+      <lightning-icon size="x-small" class="slds-button__icon_left " icon-name="utility:chevrondown" alternative-text="chevrondown"></lightning-icon>
+      <span class="slds-truncate" title="Section Title" style=" letter-spacing: 0.5px; font-family:ROBOTO CONDENSED; font-weight: 400;"> Internal  Owner Details </span>
+      </h1>
+
+      <div class="slds-grid slds-gutters body">
+      <div class="slds-col slds-size_1-of-3 " > 
+      <img class="userDP" src={internaluserImage}/>
+      </div>
+
+      <div  class="slds-col slds-size_2-of-3">
+      <div  style="text-align: left;margin-top:35px;border-bottom:2px solid #f3f2f2;">
+      <span style="font-size: 20px;font-weight: 600;">{internalusername}</span>
+      </div>
+
+
+ 
+
+      <div style="margin-top:10px" class="slds-grid slds-gutters">
+      <div class="slds-col slds-size_1-of-3">
+         Phone
+      </div>
+
+      <div class="slds-col slds-size_2-of-3">
+      {internaluserPhone}
+
+      </div>
+      </div>
+      </div>
+      </div>
+
+      <div  style="margin-top: 20px;" class="slds-grid slds-gutters body">
+      <div class="slds-col slds-size_1-of-3">
+      Company Name
+      </div>
+      <div class="slds-col slds-size_2-of-3">
+      {internaluserCompanyName}
+      </div>
+      </div>
+
+      <div class="slds-grid slds-gutters body">
+      <div class="slds-col slds-size_1-of-3">
+      Title
+      </div>
+      <div class="slds-col slds-size_2-of-3">
+      {internaluserTitle}
+      </div>
+      </div>
+    
+      <div class="slds-grid slds-gutters body">
+         <div class="slds-col slds-size_1-of-3">
+            Email
+         </div>
+         <div class="slds-col slds-size_1-of-3 ">
+            <a href="mailto:+{internaluserEmail}"  >{internaluserEmail}</a>
+            
+         
+         </div>
+      </div>
+   </div>
+
+   <!--   Internal Co owner User Details  -->
+   <div if:true={showInternalcoowner} style="box-shadow: rgb(0 0 0 / 16%) 0px 5px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;
+   padding: 0px 0px 10px 20px;
+   margin-bottom: 25px;">
+      <h1 class="slds-section__title slds_theme_shade " style="background-color: #f3f2f2;padding-top:10px" >
+               <lightning-icon size="x-small" class="slds-button__icon_left " icon-name="utility:chevrondown" alternative-text="chevrondown"></lightning-icon>
+            <span class="slds-truncate" title="Section Title" style=" letter-spacing: 0.5px; font-family:ROBOTO CONDENSED; font-weight: 400;"> Internal Co-Owner Details </span>
+      </h1>
+
+      <div class="slds-grid slds-gutters body">
+         <div class="slds-col slds-size_1-of-3 " >
+                  <img class="userDP" src={internaluserCoImage}/>
+         </div>
+
+         <div  class="slds-col slds-size_2-of-3">
+            <div  style="text-align: left;margin-top:35px;border-bottom:2px solid #f3f2f2;">
+                  <span style="font-size: 20px;font-weight: 600;">{internalCousername}</span>
+            </div>
+
+
+     
+
+         <div style="margin-top:10px" class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-3">
+                  Phone
+            </div>
+
+         <div class="slds-col slds-size_2-of-3">
+            <a href="tel:+ {internalCouserPhone}"> {internalCouserPhone}</a> 
+
+         </div>
+         </div>
+         </div>
+      </div>
+
+      <div  style="margin-top: 20px;" class="slds-grid slds-gutters body">
+         <div class="slds-col slds-size_1-of-3">
+            Company Name
+         </div>
+         <div class="slds-col slds-size_2-of-3">
+            {internalCouserCompanyName}
+         </div>
+      </div>
+
+      <div class="slds-grid slds-gutters body">
+         <div class="slds-col slds-size_1-of-3">
+            Title
+         </div>
+         <div class="slds-col slds-size_2-of-3">
+            {internalCouserTitle}
+         </div>
+      </div>
+      <!-- <div class="slds-grid slds-gutters body">
+         <div class="slds-col slds-size_1-of-3">
+            Username
+         </div>
+         <div class="slds-col slds-size_1-of-3">
+         {internalCouseruserName}
+         </div>
+      </div> -->
+
+      <div class="slds-grid slds-gutters body">
+         <div class="slds-col slds-size_1-of-3">
+            Email
+         </div>
+         <div class="slds-col slds-size_1-of-3 ">
+            <a href="mailto:+{internalCouserEmail}"  >{internalCouserEmail}</a>
+         </div>
+      </div>
+   </div>
+
+
+</template>

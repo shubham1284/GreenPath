@@ -1,0 +1,30 @@
+.pillSize{
+    width: 500px !important;
+}
+
+
+lightning-radio-group .slds-radio_faux {
+    margin-right: 10px;
+}
+
+.slds-modal__content{
+    overflow: initial;
+}
+:host  .slds-pill {
+    width: 500px !important;
+    text-align: center;
+  }
+
+  .slds-pill__label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+}
+
+.slds-scope .slds-pill__action {
+
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    
+}

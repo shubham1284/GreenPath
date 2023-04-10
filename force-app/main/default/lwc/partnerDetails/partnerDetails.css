@@ -1,0 +1,23 @@
+lightning-input-field{
+    --slds-c-input-radius-border: 8px;
+    --lwc-borderWidthThin: 1px;
+    --sds-c-input-color-border:#9d9ea2;
+    --lwc-colorBorderInputDisabled:#9d9ea2;
+    --lwc-colorTextInputDisabled:black;
+    --slds-c-input-spacing-horizontal-start:10px;
+    --lwc-inputReadonlyFontWeight: 400;
+    --sds-c-input-spacing-horizontal-start:20px;
+}
+
+.slds-input {
+padding-left: 20px;
+}
+.mr-20{
+    margin-right:25px ;
+}
+
+
+
+.field3 .slds-form-element__icon {
+    display: none;
+}

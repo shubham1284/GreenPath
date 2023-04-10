@@ -1,0 +1,150 @@
+<template>
+<div style="margin-left: 30px;margin-right:30px">
+<lightning-combobox class="width"
+        name="progress"
+        value={value}
+        placeholder="Select Progress"
+        options={options}
+        onchange={handleChange} ></lightning-combobox>
+        
+
+<template  if:true={showpendingList}>
+    
+    <div  class="grid-child-element purple slds-scrollable_y " style="height:auto;width:100%;margin-top: 30px;">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-scrollable" style="table-layout:fixed;width:100%;font-size:12px;overflow:scroll;margin-bottom:5px" cellpadding="0">
+            <thead>
+                <tr >
+
+                    <th scope="col" style="width:25%;font-size:16px;background-color:#102446;color:white; text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate">Subject</div>
+                    </th>
+                    
+                    <!-- <th scope="col" style="width:15%;font-size:16px;background-color:#102446;color:white;text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate" title="Product Name">Name</div>
+                    </th> -->
+
+
+                    <th scope="col" style="width:15%;font-size:16px;background-color:#102446;color:white;text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate" title="Product Name">Related To</div>
+                    </th>
+
+                        <th scope="col" style="width:8%;font-size:16px;background-color:#102446;color:white;text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate" title="Product Name">Status</div>
+                    </th>
+                    
+                    <th scope="col" style="width:8%;font-size:16px;background-color:#102446;color:white;text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate" title="Product Name">Priority</div>
+                    </th>
+                    <th scope="col" style="width:13%;font-size:16px;background-color:#102446;color:white;text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate" title="Product Name">Activity Date</div>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                
+            <template  if:true={pendingTaskListAvailable}>
+                <template for:each={pendingTaskList} for:item="cc"  for:index="index">
+                    <tr key={cc.li.Id}  style="height:10px;width:100%;font-size:14px;">
+                        <td style="border: 1px solid #C1C1C1; text-align: center;">
+                            <a data-record-id={cc.li.Id} href="javascript:void(0);" onclick={handleRecordClick}>   {cc.li.Subject}</a>
+                        </td>
+                       <!--  <td style="border: 1px solid #C1C1C1; text-align: center;">{cc.name}</td> -->
+                        <td style="border: 1px solid #C1C1C1; text-align: center;">{cc.li.What.Name}</td>
+                        <td style="border: 1px solid #C1C1C1; text-align: center;">{cc.li.Status}</td>
+                        <td style="border: 1px solid #C1C1C1; text-align: center;">{cc.li.Priority}</td>
+                        <td style="border: 1px solid #C1C1C1; text-align: center;">{cc.li.ActivityDate }</td> 
+                    </tr>
+                </template>  
+            </template>   
+            </tbody>
+        </table>
+    </div>
+
+
+<template  if:false={pendingTaskListAvailable}>
+<div class="norecord">
+    You Dont Have Any pending tasklist
+</div>
+
+
+</template>
+</template>
+
+
+
+
+<template  if:true={showCompletedList}>
+    
+    <div  class="grid-child-element purple slds-scrollable_y " style="height:auto;width:100%;margin-top: 30px;">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-scrollable" style="table-layout:fixed;width:100%;font-size:12px;overflow:scroll;margin-bottom:5px" cellpadding="0">
+            <thead>
+                <tr >
+
+                   <!--  <th scope="col" style="width:25%;font-size:16px;background-color:#102446;color:white; text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate">Sr No</div>
+                    </th>
+                     -->
+
+                    <th scope="col" style="width:25%;font-size:16px;background-color:#102446;color:white; text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate">Subject</div>
+                    </th>
+                    
+                 <!--    <th scope="col" style="width:15%;font-size:16px;background-color:#102446;color:white;text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate" title="Product Name">Name</div>
+                    </th>
+ -->
+
+                    <th scope="col" style="width:15%;font-size:16px;background-color:#102446;color:white;text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate" title="Product Name">Related To</div>
+                    </th>
+
+                        <th scope="col" style="width:8%;font-size:16px;background-color:#102446;color:white;text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate" title="Product Name">Status</div>
+                    </th>
+                    
+                    <th scope="col" style="width:8%;font-size:16px;background-color:#102446;color:white;text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate" title="Product Name">Priority</div>
+                    </th>
+                    <th scope="col" style="width:13%;font-size:16px;background-color:#102446;color:white;text-align: center;border: 1px solid #C1C1C1; text-align: center">
+                        <div class="slds-truncate" title="Product Name">Activity Date</div>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                
+            <template  if:true={CompletedTaskListAvailable}>
+                <template for:each={CompletedTaskList} for:item="cc"  for:index="index">
+                    <tr key={cc.li.Id}  style="height:10px;width:100%;font-size:14px;">
+                       <!--  <td style="border: 1px solid #C1C1C1; text-align: center;">{counter}</td> -->
+
+                        <td style="border: 1px solid #C1C1C1; text-align: center;">
+                            <a data-record-id={cc.li.Id} href="javascript:void(0);" onclick={handleRecordClick}>   {cc.li.Subject}</a>
+                        </td>
+                       <!--  <td style="border: 1px solid #C1C1C1; text-align: center;">{cc.name}</td> -->
+                        <td style="border: 1px solid #C1C1C1; text-align: center;">{cc.li.What.Name}</td>
+                        <td style="border: 1px solid #C1C1C1; text-align: center;">{cc.li.Status}</td>
+                        <td style="border: 1px solid #C1C1C1; text-align: center;">{cc.li.Priority}</td>
+                        <td style="border: 1px solid #C1C1C1; text-align: center;">{cc.li.ActivityDate }</td> 
+                    </tr>
+                   
+                </template>  
+            </template>   
+            </tbody>
+        </table>
+    </div>
+   
+
+<template  if:false={pendingTaskListAvailable}>
+<div class="norecord">
+    You Dont Have Any Completed tasklist
+</div>
+
+
+</template>
+</template>
+
+
+</div>
+</template>

@@ -1,0 +1,43 @@
+.button {
+    
+    border: none;
+    
+   
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    --lwc-colorTextIconDefault: #88BD45;
+    margin: 5px 27px;
+    cursor: pointer;
+    border-radius:35px;
+  }
+
+  .button1 {
+    border-radius:35px;
+  }
+
+  .fontNavigation{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Lato';
+    color: #000000;
+   
+  }
+
+  .div_hover {
+    background-color: #FFFFFF;
+  }
+  
+  .div_hover:hover {
+    background-color: #88BD45;
+  }
+
+  .logoAllignment{
+    width: 150px !important;
+    height: 47px !important;
+   
+  }
+  .dynamicCSS{
+    background-color: #88BD45;
+ 
+    }

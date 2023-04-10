@@ -1,0 +1,23 @@
+.Backgroundimage{
+    height: 400px;
+    width: auto;
+    background-size: cover;
+    min-height: 2.75rem;
+    padding: 5rem 0;
+    background-image: url(https://partners.greenpath.com/images/backgrounds/auth-bottom.png);
+}
+
+
+
+
+  h1{
+    font-size: 27px;
+    color: #000;
+    font-weight: 700;
+    font-family: Roboto Condensed;
+    letter-spacing: 1px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    padding: 25px;
+    margin: 0 25px 0 10px;
+  }

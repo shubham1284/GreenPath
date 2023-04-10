@@ -1,0 +1,29 @@
+<template>   
+    <lightning-card  title="Sign Up">
+       <lightning-layout multiple-rows>
+                <lightning-layout-item size="12">
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-input type="text" label="First Name" value="" placeholder="type here..." onchange={updateEmpId}></lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <div class="slds-p-around_medium lgc-bg">
+                           <lightning-input type="text" label="Last Name" value="" onchange={updateNum}></lightning-input>
+                       </div>
+                   </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                         <div class="slds-p-around_medium lgc-bg">
+                            <lightning-input type="email" label="Email" value="" onchange={updateEmail}></lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                    
+                    <lightning-layout-item size="12">
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-button variant="brand" label="Submit" title="Verify and Submit" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                        </div>
+                </lightning-layout-item>
+        </lightning-layout>
+       
+    </lightning-card>
+    <c-common-toast auto-close-time="8000"></c-common-toast>
+</template>

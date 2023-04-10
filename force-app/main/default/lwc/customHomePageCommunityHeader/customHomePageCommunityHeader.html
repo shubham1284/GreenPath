@@ -1,0 +1,163 @@
+<template>   
+
+    <div  style="background-image: linear-gradient(to right, #87BD48, rgb(50,80,0));">
+        <div class="slds-text-align_right dropdown_style">       
+            <div  class="slds-p-vertical_xxx-small " >             
+                <lightning-button-menu alternative-text="Show menu" style="border-radius: 36px;" class="button" icon-name="utility:user" onselect={handleMenuItem}> 
+                <lightning-menu-item label="My Profle"  value="My Profle"></lightning-menu-item>
+                    <lightning-menu-item label="Log Out"   value="Log Out" ></lightning-menu-item>              
+                </lightning-button-menu>         
+            </div>
+        </div>
+    </div>
+
+    <div if:true={isHome} class="slds-grid ">
+        <div class="slds-col slds-size_2-of-12 " style="margin-top: 20px">
+            <div  class="logoAllignment" style="margin-left: 20px;">
+                <img src={logoGP} alt="Logo GP">
+            </div>
+        </div>
+
+        
+        <div  style="padding-top:22px;width: 100px;" class="slds-text-align_center  div_hover dynamicCSS ">
+            <button class="slds-button fontNavigation  "  onclick={navigateToHomePage} >Home</button>
+        </div>
+            
+        
+
+
+        <div style="padding-top:22px;width:300px;" class="slds-text-align_center  div_hover">
+            <button class="slds-button fontNavigation" onclick={navigateToAccountHome} >Your Partnership Information</button>
+        </div>
+
+        <div style="padding-top:22px;width:300px;" class="slds-text-align_center  div_hover">
+            <button class="slds-button fontNavigation" onclick={navigatePartnerProduct} >Your Products  &amp; Services</button>
+        </div>
+
+        <div style="padding-top:22px;width: 150px;" class="slds-text-align_center  div_hover noBtn">
+            <button class="slds-button fontNavigation  " onclick={navigateToChatterGroupe} >Your Messages</button>
+        </div>
+    </div>
+
+
+
+    <div if:true={isChatter} class="slds-grid ">
+        <div class="slds-col slds-size_2-of-12 " style="margin-top: 20px">
+            <div  class="logoAllignment" style="margin-left: 20px;">
+                <img src={logoGP} alt="Logo GP">
+            </div>
+        </div>
+
+        
+        <div  style="padding-top:22px;width: 100px;" class="slds-text-align_center  div_hover  ">
+            <button class="slds-button fontNavigation  "  onclick={navigateToHomePage} >Home</button>
+        </div>
+            
+       
+
+
+        <div style="padding-top:22px;width:300px;" class="slds-text-align_center  div_hover">
+            <button class="slds-button fontNavigation" onclick={navigateToAccountHome} >Your Partnership Information</button>
+        </div>
+
+        <div style="padding-top:22px;width:300px;" class="slds-text-align_center  div_hover">
+            <button class="slds-button fontNavigation" onclick={navigatePartnerProduct} >Your Products &amp; Services</button>
+        </div>
+
+        <div style="padding-top:22px;width: 150px;" class="slds-text-align_center  div_hover dynamicCSS noBtn">
+            <button class="slds-button fontNavigation  " onclick={navigateToChatterGroupe} >Your Messages</button>
+        </div>
+    </div>
+
+
+
+    <div if:true={isPartnerDetails} class="slds-grid ">
+        <div class="slds-col slds-size_2-of-12 " style="margin-top: 20px">
+            <div  class="logoAllignment" style="margin-left: 20px;">
+                <img src={logoGP} alt="Logo GP">
+            </div>
+        </div>
+
+        
+        <div  style="padding-top:22px;width: 100px;" class="slds-text-align_center  div_hover  ">
+            <button class="slds-button fontNavigation  "  onclick={navigateToHomePage} >Home</button>
+        </div>
+            
+       
+
+        <div style="padding-top:22px;width:300px;" class="slds-text-align_center dynamicCSS  div_hover">
+            <button class="slds-button fontNavigation" onclick={navigateToAccountHome} >Your Partnership Information</button>
+        </div>
+
+        <div style="padding-top:22px;width:300px;" class="slds-text-align_center  div_hover">
+            <button class="slds-button fontNavigation" onclick={navigatePartnerProduct} >Your Products &amp; Services</button>
+        </div>
+
+        <div style="padding-top:22px;width: 150px;" class="slds-text-align_center  div_hover  noBtn">
+            <button class="slds-button fontNavigation  " onclick={navigateToChatterGroupe} >Your Messages</button>
+        </div>
+
+    </div>
+
+
+    <div if:true={isProductSrvices} class="slds-grid ">
+        <div class="slds-col slds-size_2-of-12 " style="margin-top: 20px">
+            <div  class="logoAllignment" style="margin-left: 20px;">
+                <img src={logoGP} alt="Logo GP">
+            </div>
+        </div>
+
+        
+        <div  style="padding-top:22px;width: 100px;" class="slds-text-align_center  div_hover  ">
+            <button class="slds-button fontNavigation  "  onclick={navigateToHomePage} >Home</button>
+        </div>
+            
+       
+
+
+        <div style="padding-top:22px;width:300px;" class="slds-text-align_center   div_hover">
+            <button class="slds-button fontNavigation" onclick={navigateToAccountHome} >Your Partnership Information</button>
+        </div>
+
+        <div style="padding-top:22px;width:300px;" class="slds-text-align_center  dynamicCSS div_hover">
+            <button class="slds-button fontNavigation" onclick={navigatePartnerProduct} >Your Products &amp; Services</button>
+        </div>
+
+        <div style="padding-top:22px;width: 150px;" class="slds-text-align_center  div_hover  noBtn">
+            <button class="slds-button fontNavigation  " onclick={navigateToChatterGroupe} >Your Messages</button>
+        </div>
+    </div>
+
+
+
+    <div if:true={istask} class="slds-grid ">
+        <div class="slds-col slds-size_2-of-12 " style="margin-top: 20px">
+            <div  class="logoAllignment" style="margin-left: 20px;">
+                <img src={logoGP} alt="Logo GP">
+            </div>
+        </div>
+
+        
+        <div  style="padding-top:22px;width: 100px;" class="slds-text-align_center  div_hover  ">
+            <button class="slds-button fontNavigation  "  onclick={navigateToHomePage} >Home</button>
+        </div>
+            
+        
+
+
+        <div style="padding-top:22px;width:300px;" class="slds-text-align_center  div_hover">
+            <button class="slds-button fontNavigation" onclick={navigateToAccountHome} >Your Partnership Information</button>
+        </div>
+
+        <div style="padding-top:22px;width:300px;" class="slds-text-align_center  div_hover">
+            <button class="slds-button fontNavigation" onclick={navigatePartnerProduct} >Your Products &amp; Services</button>
+        </div>
+
+        <div style="padding-top:22px;width: 150px;" class="slds-text-align_center  div_hover noBtn">
+            <button class="slds-button fontNavigation  " onclick={navigateToChatterGroupe} >Your Messages</button>
+        </div>
+    </div>
+ 
+
+
+</template>

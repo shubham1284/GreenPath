@@ -1,0 +1,23 @@
+.button {
+    
+    border: none;
+  
+   
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px 27px;
+    cursor: pointer;
+    border-radius:35px;
+  }
+
+  .button1 {
+    border-radius:35px;
+  }
+
+  .fontNavigation{
+    font-size: 25px;
+    font-weight: 400;
+    font-family: 'Roboto';
+    color: #000000;
+  }

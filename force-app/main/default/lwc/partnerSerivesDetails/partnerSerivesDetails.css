@@ -1,0 +1,42 @@
+lightning-input-field{
+--slds-c-input-radius-border: 8px;
+--lwc-borderWidthThin:1px ;
+--sds-c-input-color-border:black;
+--lwc-colorBorderInput::black;
+--lwc-colorBorderInputDisabled:black;
+--lwc-colorTextInputDisabled::black;
+--sds-c-textarea-color-border:black;
+--lwc-colorBorderInputReadonly:black;
+
+}
+
+
+
+
+.accordionClass{
+    --sds-c-accordion-heading-font-size:18px;
+}
+
+
+.slds-textarea {
+    --lwc-colorBorderInput:black;
+    --sds-c-textarea-color-border:black;
+    --lwc-borderWidthThin:1px;
+    --slds-c-textarea-color-border:black;
+
+    
+    
+}
+.inpClass{
+    border : 1px solid black;
+}
+.label{
+    font-family: 'LATO';
+    font-size: 15px; 
+    font-weight:400;
+     color:black
+}
+
+.slds-form-element__icon {
+    display: none;
+}

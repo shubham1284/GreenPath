@@ -1,0 +1,83 @@
+<template>   
+
+    <div  style="background-color:#88BD45;">
+        <div class="slds-text-align_right">       
+            <div  class="slds-p-vertical_xxx-small " >             
+                <lightning-button-menu alternative-text="Show menu" style="border-radius: 36px;" class="button" icon-name="utility:user" onselect={handleMenuItem}> 
+                <lightning-menu-item label="My Profle"  value="My Profle"></lightning-menu-item>
+                    <lightning-menu-item label="Log Out"   value="Log Out" ></lightning-menu-item>              
+                </lightning-button-menu>         
+            </div>
+        </div>
+    </div>
+
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-6">
+             <div style="width: 100px;margin-left: 100px;" onclick={navigateToHomePage}>
+             <img src={logoGP} alt="Logo GP">
+             </div>
+        </div>
+          
+   
+       
+            <div style="margin-top:35px;" class=" slds-col slds-size_1-of-12">
+                <button class="slds-button fontNavigation" onclick={navigateToAccountHome} >Account</button>
+           
+          
+        </div>
+
+        <div style="margin-top:35px;" class="slds-col slds-size_1-of-12">
+            <button class="slds-button fontNavigation" onclick={navigateToContactHome} >Contact</button>
+       
+      
+    </div>
+   
+
+
+
+
+
+    </div>
+
+    
+
+
+    <div class="slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+        <button class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" aria-expanded="true" title="Show More">
+        <svg class="slds-button__icon" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#user"></use>
+        </svg>
+        <span class="slds-assistive-text">Show More</span>
+        </button>
+        <div class="slds-dropdown slds-dropdown_left">
+        <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
+        <li class="slds-dropdown__item" role="presentation">
+        <a href="#" role="menuitem" tabindex="0">
+        <span class="slds-truncate" title="Menu Item One">Menu Item One</span>
+        </a>
+        </li>
+        <li class="slds-dropdown__item" role="presentation">
+        <a href="#" role="menuitem" tabindex="-1">
+        <span class="slds-truncate" title="Menu Item Two">Menu Item Two</span>
+        </a>
+        </li>
+       
+        
+        
+        </ul>
+        </div>
+        </div>
+
+
+
+   
+
+
+
+
+    
+
+
+
+    
+</template>
